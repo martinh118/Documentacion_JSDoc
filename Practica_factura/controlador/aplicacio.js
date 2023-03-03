@@ -137,7 +137,8 @@ function afegirCella() {
 }
 
 /**
- * @method guardarArticle() A partir de l'array creat al principi del codi ("arrayFactures") guarda els nous articles 
+ * @method guardarArticle() 
+ * @description A partir de l'array creat al principi del codi ("arrayFactures") guarda els nous articles 
  * creats a aquesta llista amb totes les seves propietats i l'identificador corresponent depenent de la posició.
  * 
  */
