@@ -6,6 +6,11 @@
  * 
  */
 
+/**
+ * @method teclat
+ * @description controlador del teclat, cada cop que omples un camp i premes "Enter" es passa al següent camp
+ * si premes "Esc" es tanca el formulari
+ */
 export function teclat() {
 	//Es la tecla "Esc"
 	$("body").on("keydown", function(e) {
