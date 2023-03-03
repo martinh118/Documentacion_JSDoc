@@ -1,7 +1,6 @@
 /**
  * @author Martín H. Jaime & Sergi Sanahuja
  * @version 1.0
- * @description 
  */
 
 // Importa la clase Factura de /model/Factura.js.
@@ -21,7 +20,8 @@ const gracies = "<div class='especial'>MOLTES GRÀCIES!</div>";
 let arrayFactures = [];
 
 /**
- * @method amagar() Guarda les referències d'article i factura de l'arxiu HTML "Factura.html" a la variable "element" i els amaga. 
+ * @method amagar() 
+ * @description Guarda les referències d'article i factura de l'arxiu HTML "Factura.html" a la variable "element" i els amaga. 
  * Això fa que les finestres de crear Article o crear Factura es deixin de mostrar.
  * 
  */
@@ -40,7 +40,8 @@ function amagar() {
 }
 
 /**
- * @method generarData() Prepara cada camp de la finestra a l'hora de crear una factura i omple automàticament els camps de "Núm. Factura" i "Data de factura".  
+ * @method generarData() 
+ * @description Prepara cada camp de la finestra a l'hora de crear una factura i omple automàticament els camps de "Núm. Factura" i "Data de factura".  
  * 
  * 
  */
@@ -80,7 +81,8 @@ function generarData() {
 }
 
 /**
- * @method eventListeners() A partir de l'identificador HTML executa la funció de cada botó quan és premut.
+ * @method eventListeners() 
+ * @description A partir de l'identificador HTML executa la funció de cada botó quan és premut.
  * 
  */
 function eventListeners() {
@@ -117,8 +119,8 @@ function eventListeners() {
 }
 
 /**
- * @method afegirCella() A la finestra dels Articles d'una factura afegeix una fila amb tots els camps buits.
- * Això es fa aplicant una taula a partir de codi HTML.
+ * @method afegirCella() 
+ * @description la finestra dels Articles d'una factura afegeix una fila amb tots els camps buits. Això es fa aplicant una taula a partir de codi HTML.
  * 
  */
 function afegirCella() {
@@ -172,7 +174,8 @@ function guardarArticle() {
 }
 
 /**
- * @method guardarFactura() A partir dels identificadors HTML de la finestra de "Nova factura", guarda els valors de cada camp input de la finestra a cada variable corresponent i fa les comprovacions necessàries.
+ * @method guardarFactura()
+ * @description A partir dels identificadors HTML de la finestra de "Nova factura", guarda els valors de cada camp input de la finestra a cada variable corresponent i fa les comprovacions necessàries.
  * A partir d'aquí crea un nou objecte de factura, el guarda a la llista "arrayFactures" i el mostra a la pàgina.
  *
  * @returns boolean, en cas que cada comprovació de crear la factura sigui correcte retorna "true".
@@ -234,7 +237,8 @@ function guardarFactura() {
 }
 
 /**
- * @method mostrarFactures() Afegeix a la taula principal HTML l'informació de les factures guardades.
+ * @method mostrarFactures() 
+ * @description Afegeix a la taula principal HTML l'informació de les factures guardades.
  */
 function mostrarFactures() {
 	//Crea la variable String.
@@ -256,7 +260,8 @@ function mostrarFactures() {
 }
 
 /**
- * @method mostrarArticles() A partir del paràmetre d'entrada en número, mostra els articles guardats de la factura corresponent posicionada a la llista "arrayFactures". 
+ * @method mostrarArticles() 
+ * @description A partir del paràmetre d'entrada en número, mostra els articles guardats de la factura corresponent posicionada a la llista "arrayFactures". 
  * @param {Number} ndx Posició on es guarda la factura seleccionada per l'usuari.
  */
 function mostrarArticles(ndx) {
@@ -283,7 +288,8 @@ function mostrarArticles(ndx) {
 };
 
 /**
- * @method accions() Per a cada fila de factura en la taula principal, afegeix les accions disponibles a partir de l'objecte "factura" i els mètodes corresponents.
+ * @method accions() 
+ * @description Per a cada fila de factura en la taula principal, afegeix les accions disponibles a partir de l'objecte "factura" i els mètodes corresponents.
  */
 function accions() {
 	//Amb el bucle for agafa l'identificador de cada objecte "factura" guardat a la llista "arrayFactures" i els hi aplica els botons amb la referència HTML corresponent.
@@ -296,7 +302,8 @@ function accions() {
 }
 
 /**
- * @method agafarId() Agafa l'identificador de la factura desitjada a partir del número de la variable "id".
+ * @method agafarId() 
+ * @description Agafa l'identificador de la factura desitjada a partir del número de la variable "id".
  * @param {Number} id Identificador de la factura.
  * @param {Number} num Número a partir del qual comença la recerca de la subcadena.
  * @returns Retorna la subcadena de l'identificador a partir dels paràmetre introduïts. 
@@ -306,7 +313,8 @@ function agafarId(id , num) {
 }
 
 /**
- * @method editFactura() Agafa cada element guardat de l'objecte ja creat "Factura" seleccionat per l'usuari i el mostra a la finestra de "Nova factura" amb tots els camps ja omplerts.
+ * @method editFactura() 
+ * @description Agafa cada element guardat de l'objecte ja creat "Factura" seleccionat per l'usuari i el mostra a la finestra de "Nova factura" amb tots els camps ja omplerts.
  * @param {Event} event Aquesta variable és la referència sobre l'esdeveniment seleccionat als botons disponibles.
  */
 function editFactura(event) {
@@ -331,7 +339,8 @@ function editFactura(event) {
 }
 
 /**
- * @method modificarFactura() En cas que una factura ha sigut modificada, aquesta funció crea un objecte "Factura" nou amb tots els camps, 
+ * @method modificarFactura() 
+ * @description En cas que una factura ha sigut modificada, aquesta funció crea un objecte "Factura" nou amb tots els camps, 
  * i el substitueix amb l'objecte en la mateixa posició on està situat la factura modificada en la llista "arrayFactures". 
  * @param {Number} id Identificador de la factura modificada.
  * @param {Date} data Data de la factura modificada.
@@ -355,7 +364,8 @@ function modificarFactura(id, data, nif, nom, adreca, correu, pagat, iva, total)
 }
 
 /**
- * @method eliminarFactura() Mostra un missatge perquè l'usuari s'asseguri si vol eliminar la factura.
+ * @method eliminarFactura() 
+ * @description Mostra un missatge perquè l'usuari s'asseguri si vol eliminar la factura.
  * En cas positiu agafa la referència de la factura amb l'identificador adequat i l'elimina de la llista "arrayFactures"
  * @param {Event} event Aquesta variable és la referència sobre l'esdeveniment seleccionat als botons disponibles.
  */
@@ -372,7 +382,8 @@ function eliminarFactura(event) {
 }
 
 /**
- * @method borrarArticle() A partir de l'identificador de la factura i de l'article esborra l'article seleccionat de la taula d'articles de la factura.
+ * @method borrarArticle() 
+ * @description A partir de l'identificador de la factura i de l'article esborra l'article seleccionat de la taula d'articles de la factura.
  * @param {Event} event Aquesta variable és la referència sobre l'esdeveniment seleccionat als botons disponibles.
  */
 function borrarArticle(event) {
@@ -398,7 +409,8 @@ function borrarArticle(event) {
 }
 
 /**
- * @method mostrarError() Mostra un missatge d'error a la taula principal de factures.
+ * @method mostrarError() 
+ * @description Mostra un missatge d'error a la taula principal de factures.
  * @param {String} text text que es mostra a la taula d'articles.
  */
 function mostrarError(text) {
@@ -406,7 +418,8 @@ function mostrarError(text) {
 }
 
 /**
- * @method openDialegNewFactura() Mostra la finestra completa per crear un objecte "Factura".
+ * @method openDialegNewFactura()
+ * @description Mostra la finestra completa per crear un objecte "Factura".
  */
 function openDialegNewFactura() {
 	//Guarda la referència de l'etiqueta HTML amb l'id "factura" a la variable "element"...
@@ -418,7 +431,8 @@ function openDialegNewFactura() {
 }
 
 /**
- * @method openDialegEditFactura() A partir de l'identificador de la factura seleccionada, agafa la factura i mostra la informació de la factura a la finestra "Factura.html".
+ * @method openDialegEditFactura() 
+ * @description A partir de l'identificador de la factura seleccionada, agafa la factura i mostra la informació de la factura a la finestra "Factura.html".
  * @param {Event} event Aquesta variable és la referència sobre l'esdeveniment seleccionat als botons disponibles.
  */
 function openDialegEditArticles(event) {
@@ -436,7 +450,8 @@ function openDialegEditArticles(event) {
 }
 
 /**
- * @method printFactura() A partir de l'identificador de la factura seleccionada, agafa la factura i mostra la informació de la factura a la finestra "Print.html".
+ * @method printFactura() 
+ * @description A partir de l'identificador de la factura seleccionada, agafa la factura i mostra la informació de la factura a la finestra "Print.html".
  * @param {Event} event Aquesta variable és la referència sobre l'esdeveniment seleccionat als botons disponibles.
  */
 function printFactura(event) {
@@ -474,7 +489,8 @@ function printFactura(event) {
 }
 
 /**
- * @method guardar guarda les dades de les factures a un arxiu de .tsv
+ * @method guardar 
+ * @description guarda les dades de les factures a un arxiu de .tsv
  * 
  */
 function guardar() {
@@ -494,7 +510,8 @@ function guardar() {
 }
 
 /**
- * @method downloadArxiu Descarrega un arxiu de text/tsv.
+ * @method downloadArxiu 
+ * @description Descarrega un arxiu de text/tsv.
  * @param {String} filename nom del arxiu.
  * @param {String} text text del arxiu.
  */
@@ -514,7 +531,8 @@ function downloadArxiu(filename, text) {
 }
 
 /**
- * @method carregarFactures Carrega les dades de les factures d'un arxiu de .tsv.
+ * @method carregarFactures 
+ * @description Carrega les dades de les factures d'un arxiu de .tsv.
  * @param {Event} evt Aquesta variable és la referència sobre l'esdeveniment seleccionat als botons disponibles.
  * @returns void.
  */
@@ -560,7 +578,7 @@ function carregarFactures(evt) {
 					console.log("index: " + index);
 					console.log(arrayFactures[index].arrayArticles);
 					if (arrayFactures[index].getArrayArticles() == undefined) {
-						arrayFactures[index].getArrayArticles() = [];
+						arrayFactures[index].getArrayArticles() == [];
 					} else {
 						indexA = arrayFactures[index].getArrayArticles().findIndex(a => { return a.getCodi() == dades[1]; });
 					}
@@ -580,7 +598,8 @@ function carregarFactures(evt) {
 }
 
 /**
- * @method init inicialitza les funcions i mostra les factures d'exemple.
+ * @method init 
+ * @description inicialitza les funcions i mostra les factures d'exemple.
  * 
  */
 function init() {
