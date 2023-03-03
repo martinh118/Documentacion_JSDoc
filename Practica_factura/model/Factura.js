@@ -8,33 +8,20 @@ import {Article} from "./Article.js";
 
 /**
  * @class Factura 
- * @description Classe que representa una factura
- * @param {number} id - Identificador de la factura (autoincremental)
- * @param {string} data - Data de la factura format (dd/mm/aaaa)
- * @param {string} nif - NIF del client format (00000000A)
- * @param {string} nom - Nom del client
- * @param {string} adreca - Adreça del client
- * @param {string} correu - Correu electrònic del client
- * @param {boolean} pagat - Indica si la factura està pagada
- * @param {number} iva - IVA de la factura (21%)
- * @param {number} total - Total de la factura (IVA inclos)
- * @param {array} arrayArticles - Array d'articles de la factura (Article)
+ * @description - Classe que representa una factura
  * 
- * @method getId - Retorna l'identificador de la factura
- * @method getData - Retorna la data de la factura format (dd/mm/aaaa)
- * @method getNif - Retorna el NIF del client format (00000000A)
- * @method getNomClient - Retorna el nom del client
- * @method getAdreca - Retorna l'adreça del client
- * @method getCorreu - Retorna el correu electrònic del client
- * @method getPagat - Retorna si la factura està pagada
- * @method getIva - Retorna l'IVA de la factura (21%)
- * @method getTotal - Retorna el total de la factura (IVA inclos)
- * @method getArrayArticles - Retorna l'array d'articles de la factura (Article)
- * 
- * @method setArrayArticles - Assigna l'array d'articles de la factura (Article)
- * @method setArticle - Assigna un article a l'array d'articles de la factura (Article)
- * @method setTotal - Assigna el total de la factura (IVA inclos)
- * 
+* 
+* @param {number} id - Identificador de la factura (autoincremental)
+* @param {string} data - Data de la factura format (dd/mm/aaaa)
+* @param {string} nif - NIF del client format (00000000A)
+* @param {string} nom - Nom del client
+* @param {string} adreca - Adreça del client
+* @param {string} correu - Correu electrònic del client
+* @param {boolean} pagat - Indica si la factura està pagada
+* @param {number} iva - IVA de la factura (21%)
+* @param {number} total - Total de la factura (IVA inclos)
+* @param {array} arrayArticles - Array d'articles de la factura (Article)
+* @returns {Factura} - Factura
  */
 export class Factura {
     #id;
@@ -50,6 +37,7 @@ export class Factura {
     #arrayArticles = [];
     
 
+    
     constructor(id, data, nif, nom, adreca, correu, pagat, iva, total) {
         this.#id = id;
         this.#data = data;
@@ -62,22 +50,90 @@ export class Factura {
         this.#total = total;
     }
 
+    /**
+     * @method getId 
+     * @description Retorna l'identificador de la factura.
+     * @returns {Number} id.
+     */
     getId() {return this.#id};
+    /**
+     * @method getData 
+     * @description Retorna la data de la factura format (dd/mm/aaaa).
+     * @returns {Date} data.
+     */
     getData() {return this.#data};
+    /**
+     * @method getNif 
+     * @description Retorna el NIF del client format (00000000A).
+     * @returns {String} - nif
+     */
     getNif() {return this.#nif};
+    /**
+    * @method getNomClient 
+    * @description Retorna el nom del client.
+    * @returns {String} - nom
+    */
     getNomClient() {return this.#nom};
+    /**
+     * @method getAdreca 
+     * @description Retorna l'adreça del client.
+     * @returns {String} - adreca
+     */
     getAdreca() {return this.#adreca};
+    /**
+     * @method getCorreu 
+     * @description Retorna el correu electrònic del client.
+     * @returns {String} - correu
+     */
     getCorreu() {return this.#correu};
+    /**
+     * @method getPagat 
+     * @description Retorna si la factura està pagada.
+     * @returns {Boolean} - pagat
+     */
     getPagat() {return this.#pagat};
+    /**
+     * @method getIva 
+     * @description Retorna l'IVA de la factura (21%).
+     * @returns {Number} - iva
+     */
     getIva() {return this.#iva};
+    /**
+     * @method getTotal 
+     * @description Retorna el total de la factura (IVA inclos).
+     * @returns {Number} - total
+     */
     getTotal() {return this.#total};
+    /**
+     * @method getArrayArticles 
+     * @description Retorna l'array d'articles de la factura (Article).
+     * @returns {Array} - arrayArticles
+     */
     getArrayArticles() {return this.#arrayArticles};
+    /**
+     * @method setArrayArticles 
+     * @description Assigna l'array d'articles de la factura (Article).
+     * @param {Array} arrayArticles 
+     */
     setArrayArticles(arrayArticles) {this.#arrayArticles = arrayArticles};
+    /**
+     * @method setArticle 
+     * @description Assigna un article a l'array d'articles de la factura (Article).
+     * @param {Article} article 
+     */
     setArticle(article) {this.#arrayArticles.push(article)};
+    /**
+     * @method setTotal 
+     * @description Assigna el total de la factura (IVA inclos)
+     * @param {Number} total 
+     */
     setTotal(total) {this.#total = total};
 
-
-    // imprimeix els articles de la factura
+    /**
+     * @method imprimirArticles 
+     * @description Els articles de la factura
+     * @returns {String} - registre.
+     */
     imprimirArticles() {
         let registre = "";
         for(let article of this.#arrayArticles) {
@@ -93,13 +149,27 @@ export class Factura {
         return registre;
     }
 
-    //afegir article a la factura
+    //
+    /**
+     * @method afegirArticle 
+     * @description Article a la factura
+     * @param {Number} codi 
+     * @param {String} nom 
+     * @param {Number} unitat 
+     * @param {Number} preu 
+     * @param {Number} subtotal 
+     */
     afegirArticle(codi, nom, unitat, preu, subtotal) {
         let article = new Article(codi, nom, unitat, preu, subtotal);
         this.#arrayArticles.push(article);
     }
     
-    // imprimeix la factura 
+    // 
+    /**
+     * @method imprimirFactura 
+     * @description imprimeix la factura 
+     * @returns {String} - registre.
+     */
     imprimirFactura() {
         let registre = "";
 
