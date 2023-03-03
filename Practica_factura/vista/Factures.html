@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ca">
+<head>
+	<title>Factures</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="../sources/Factures.css">
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script type="module" src="../controlador/aplicacio.js"></script>
+</head>
+<body>
+	<div id="main" class="inline">
+		<div class="inline">
+			<h2>Generador de factures</h2>
+			<!-- Boto per crear una nova factura. -->
+			<button id="apuntar" class="nonprintable">Nova factura</button>
+			<button id="guardar" class="nonprintable" style="margin-left:.5rem;">Guardar</button>
+			<input type="file" id="file" hidden/>
+			<button><label for="file">Carregar factura</label></button><br><br>
+			<table id="factures">
+				<thead>
+					<tr>
+						<th>Núm. Factura</th>
+						<th>Data Factura</th>
+						<th>NIF</th>
+						<th>Nom client</th>
+						<th>Adreça</th>
+						<th>Correu</th>
+						<th>Pagat</th>
+						<th>IVA</th>
+						<th>Total</th>
+						<th>Accions</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+	<div id="factura" class="dialeg">
+		<div class="centrat">
+			<form id="formulari">
+				<div id="tancar" class="tancar"><img src="../sources/close.svg"></div>
+				<h5>Nova factura</h5><br>
+				<label for="numFactura">Núm. factura:</label> 
+				<input type="number" name="numFactura" id="numFactura" required disabled><br>
+				<label for="nif">NIF client:</label> 
+				<input type="text" name="nif" id="nif" autofocus required><br>
+				<label for="nom">Nom client:</label> 
+				<input type="text" name="nom" id="nom" maxlength="50" required><br> <br>
+				<label for="correu">Correu electrònic:</label>
+				<input type="email" name="correu" id="correu" maxlength="50" required><br><br>
+				<label for="adreca">Adreça:</label>
+				<input type="text" name="adreca" id="adreca" maxlength="50" required placeholder="C/Exemple Num. 26 - 2n Pis - 1a Porta"><br><br>
+				<label for="data">Data de factura:</label>
+				<input id="data" name="data" type="date" required><br><br>
+				<label for="pagat">Pagat:</label>
+				<input type="checkbox" name="pagat" id="pagat"><br><br>
+				<label for="iva">IVA: </label>
+				<input type="number" name="iva" id="iva" min="0" max="100" value="21"> % <br><br>
+				<strong>Total: <span id="total">&nbsp</span></strong><br><br>
+				<span id="error" class="error"></span><br><br>
+				<button id="submitFactura" type="submit">Acceptar</button> <button type="reset" id="cancelar">Cancel·lar</button>
+			</form>
+		</div>
+	</div>
+	<div id="articles" class="dialeg">
+		<div class="centrat">
+			<img id="tancar2" class="tancar" src="../sources/close.svg">
+			<h5>Articles</h5>
+			<input id="facturaId" type="text" value="" hidden>
+			<table id="taulaArticles">
+				<thead>
+					<tr>
+						<th>Codi Article</th>
+						<th>Article</th>
+						<th>Unitats</th>
+						<th>Preu</th>
+						<th>Subtotal</th>
+						<th>Accions</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="4">Total:</th>
+						<td id="totalArticles">0</td>
+					</tr>
+				</tfoot>
+			</table>
+			<br>
+			<div>
+				<button id="guardarArticles">Guardar</button>
+				<button type="reset">Cancel·lar</button>
+				<button id="afegirArticle"><img src="../sources/mas.svg" alt=""></button>
+			</div>
+		</div>
+	</div>
+	<div id="divPrint"></div>
+</body>
+</html>

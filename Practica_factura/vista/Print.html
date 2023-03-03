@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script type="module" src="../controlador/print.js"></script>
+    <title>Document</title>
+    <style>
+       @media print{
+	@page { size:6.2in 7.1in; margin: 1cm; align-self: center;}
+	* { font-size:10px; }
+	.especial {
+		display: block;
+		position: fixed;
+		font-weight: bold;
+        font-size: 3rem;
+		border: .5rem solid black;
+		padding: 0.5rem;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(-65deg) scale(1.6, 1.3);
+		opacity: .1;
+        }
+    }
+    table {border:none; border-collapse:collapse;}
+    th {vertical-align:middle; width:7rem; border:.1rem solid black; background-color:lightgrey;}
+    td {vertical-align:middle; width:6rem; border:.1rem solid black; text-align:left; white-space:nowrap;}
+    </style>
+</head>
+<body>
+    <table id="intro">
+        <tr>
+            <th>Data factures</th>
+            <td></td>
+            <th>Núm. factura</th>
+            <td></td>
+        </tr>
+    </table><br>
+    <table id="client">
+        <tr>
+            <th>NIF</th>
+            <td></td>
+            <th>Nom</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Adreça</th>
+            <td></td>
+            <th>Correu</th>
+            <td></td>
+        </tr>
+    </table><br>
+    <table id="articles">
+        <thead>
+            <tr>
+                <th>Codi</th>
+                <th>Article</th>
+                <th>Uni.</th>
+                <th>Preu</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table><br><br><br>
+    <table id="total">
+        <tr>
+            <th>IVA</th>
+            <td></td>
+            <th>Import IVA</th>
+            <td></td>
+            <th>TOTAL FACTURA</th>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
