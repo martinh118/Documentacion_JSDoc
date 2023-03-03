@@ -5,7 +5,8 @@
  */
 
 /**
- * @method validarFactura comprova que les dades introduïdes siguin correctes
+ * @method validarFactura 
+ * @description comprova que les dades introduïdes siguin correctes
  * @param {Event} event
  */
 export function validarFactura(event) {
@@ -26,7 +27,8 @@ export function validarFactura(event) {
 }
 
 /**
- * @method comprovarNIF Comprova si el NIF és correcte
+ * @method comprovarNIF 
+ * @description Comprova si el NIF és correcte
  * @param {String} nif nit a comprovar format 00000000A
  */
 export function comprovarNIF(nif) {
@@ -45,7 +47,8 @@ export function comprovarNIF(nif) {
 }
 
 /**
- * @method comprivarNom Comprova que el nom no contigui números ni caràcters especials
+ * @method comprivarNom 
+ * @description Comprova que el nom no contigui números ni caràcters especials
  * @param {String} nom 
  */
 export function comprovarNom(nom) {
@@ -62,7 +65,8 @@ export function comprovarNom(nom) {
 }
 
 /**
- * @method comprovarCorreu Comprova que el correu electrònic sigui correcte.
+ * @method comprovarCorreu 
+ * @description Comprova que el correu electrònic sigui correcte.
  * @param {String} email format exemple@gmail.com
  */
 export function comprovarCorreu(email) {

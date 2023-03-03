@@ -5,7 +5,8 @@
  */
 
 /**
- * @method calcularSubtotal calcular el subtotal de cada article
+ * @method calcularSubtotal 
+ * @description calcular el subtotal de cada article
  * @param {event} event passa l'event que ha disparat la funció
  * 
  */
@@ -34,7 +35,8 @@ export function calcularSubtotal(event) {
 }
 
 /**
- * @method totalArticle A partir de les unitats i el preu de cada article, calcula el total de la factura.
+ * @method totalArticle 
+ * @description A partir de les unitats i el preu de cada article, calcula el total de la factura.
  * 
  */
 export function totalArticle() {
@@ -52,7 +54,8 @@ export function totalArticle() {
 }
 
 /**
- * @method totalFactura calcular el total de la factura
+ * @method totalFactura 
+ * @description calcular el total de la factura
  * @param {array} arrayFactures array de factures
  */
 export function totalFactura(arrayFactures) {

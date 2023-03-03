@@ -13,7 +13,8 @@ $(document).ready(function() {
 });
 
 /**
- * @method imprimirdades Funció que imprimeix les dades de la factura
+ * @method imprimirdades 
+ * @description Funció que imprimeix les dades de la factura
  * @returns {void}
  */
 function imprimirdades() {
